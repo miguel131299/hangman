@@ -47,10 +47,6 @@ class Game
     puts load_game_message('game_loaded')
   end
 
-  def is_i?
-    !!(self =~ /\A[-+]?[0-9]+\z/)
-  end
-
   def load_game_input(saved_games)
     input = gets.chomp
 
@@ -105,7 +101,7 @@ class Game
     puts ''
 
     # game won?
-    game_over('winner') if word_guessed?(@codeword, @guesses)
+    game_over('winner', @codeword) if word_guessed?(@codeword, @guesses)
   end
 
   def user_input
@@ -120,7 +116,6 @@ class Game
 
     end
 
-    # TODO: Save functionality
     return input if input == 'save'
 
     return input if input == 'exit'
@@ -139,7 +134,7 @@ class Game
 
     Game.new.start if input == 'y'
 
-    puts "Game EXIIIIIIIIIIIIIIIII"
+    exit
   end
 
 end

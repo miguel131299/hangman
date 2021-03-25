@@ -22,7 +22,7 @@ module TextContent
 
   def game_over_message(message, codeword = nil)
     {
-      'winner' => "Congratulations! You successfully guessed the word #{codeword}. You Rock!",
+      'winner' => "Congratulations! You successfully guessed the word #{display_red(codeword)}. You Rock!",
       'exit' => 'Game exited',
       'no_tries' => "Game over! You ran out of tries. The word you were trying to guess was #{display_red(codeword)}",
       'new_game_prompt' => "If you would like to play again, please enter 'y'. If not please enter anything else"
