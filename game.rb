@@ -31,14 +31,14 @@ class Game
         end
 
         #user ran out of tries
-        game_over('no_tries')
+        game_over('no_tries', @codeword)
     end
 
     def take_turn
         puts turn_message('show_word_to_guess')
         show_guessed_word(@codeword, @guesses)
+        show_available_letters(@guesses)
         puts turn_message('prompt_user', @tries)
-
 
         guess = user_input
 
@@ -51,7 +51,7 @@ class Game
         #word does not contain guess
         unless guess_in_word?(@codeword, guess)
             @tries -= 1
-            puts turn_message('guess_wrong', guess)
+            puts turn_message('guess_wrong', nil, guess)
         else
             puts turn_message('guess_correct')
         end
@@ -89,7 +89,17 @@ class Game
         user_input
     end
 
-    def game_over(condition)
-        #TODO: IMPLEMENT
+    def game_over(condition, codeword = nil)
+        puts game_over_message(condition, codeword)
+        puts "\n"
+        puts game_over_message('new_game_prompt')
+
+        input = gets.chomp
+
+        if input == 'y'
+            Game.new.start
+        end
     end
 end
+
+# Game.new.show_guessed_word("teratogenic", "teratogeni")
