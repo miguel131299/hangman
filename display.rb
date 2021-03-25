@@ -23,4 +23,8 @@ module Display
         end
         puts "These are the available letters: #{available}"
     end
+
+    def display_red(message)
+        "\e[38;5;196m#{message} \e[0m"
+    end
 end

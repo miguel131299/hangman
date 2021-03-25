@@ -101,5 +101,3 @@ class Game
         end
     end
 end
-
-# Game.new.show_guessed_word("teratogenic", "teratogeni")
