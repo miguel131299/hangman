@@ -9,7 +9,7 @@ module TextContent
       'other_options' => "If you want to exit the game, just enter 'exit'. If you want to save the game, enter 'save'",
       'show_word_to_guess' => 'This is what you have guessed until now:',
       'guess_correct' => 'Super! Your guess was right!',
-      'guess_wrong' => "Sorry! The codeword did not contain the letter #{guess}"
+      'guess_wrong' => "Sorry! The codeword did not contain the letter #{display_red(guess)}"
     }[message]
   end
 
@@ -22,7 +22,7 @@ module TextContent
 
   def game_over_message(message, codeword = nil)
     {
-      'winner' => "Congratulations! You successfully guessed the word #{display_red(codeword)}. You Rock!",
+      'winner' => "Congratulations! You successfully guessed the word #{display_green(codeword)}. You Rock!",
       'exit' => 'Game exited',
       'no_tries' => "Game over! You ran out of tries. The word you were trying to guess was #{display_red(codeword)}",
       'new_game_prompt' => "If you would like to play again, please enter 'y'. If not please enter anything else"

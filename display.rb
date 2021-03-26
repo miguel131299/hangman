@@ -29,4 +29,9 @@ module Display
   def display_red(message)
     "\e[38;5;196m#{message} \e[0m"
   end
+
+  def display_green(message)
+    "\e[38;5;34m#{message} \e[0m"
+
+  end
 end
